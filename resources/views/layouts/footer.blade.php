@@ -13,11 +13,11 @@
                 <div class="widget widget_links clearfix">
                     <h4>Menu Utama</h4>
                     <ul>
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#">Berita </a></li>
-                        <li><a href="#">Galeri</a></li>
-                        <li><a href="#">Divisi</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="home">Beranda</a></li>
+                        <li><a href="berita">Berita </a></li>
+                        <li><a href="galeri">Galeri</a></li>
+                        <li><a href="divisi">Divisi</a></li>
+                        <li><a href="about">About Us</a></li>
                     </ul>
                 </div>
             </div>
