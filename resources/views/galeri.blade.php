@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layouts.master')
 
 @section('title','Galeri')
 @section('nav')
-    @extends('layout.nav')
+    @extends('layouts.nav')
 @endsection
 
 @section('content')

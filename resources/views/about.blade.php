@@ -1,6 +1,6 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('nav')
-    @include('layout/navtrans')
+    @include('layouts/navtrans')
 @endsection
 @section('title','About')
 @section('jumbotron')
