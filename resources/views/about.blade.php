@@ -14,15 +14,15 @@
 
 @section('content')
     <!-- Visi Misi Section Begin -->
+    <div class="section notopmargin nobottommargin nobottomborder topborder">
+        <div class="container clearfix">
+        <div class="heading-block center nomargin">
+        <h3>Visi & Misi</h3>
+        </div>
+        </div>
+        </div>
     <div class="container clearfix">
         <div class="clear"></div>
-        <div class="fancy-title title-border title-center">
-            <div class="clear"></div>
-            <div class="divider  divider-short divider-center"></div>
-            <div class="heading-block title-center page-section">
-                <h2>Visi & Misi</h2>
-            </div>
-        </div>
         <img src="img/about-us.jpg" alt="">
         <div class="row">
             <div class="col-lg-6">
@@ -71,13 +71,17 @@
     
     
     <!-- Struktur Organisasi Begin -->
+    <div class="section notopmargin nobottommargin nobottomborder topborder">
+        <div class="container clearfix">
+        <div class="heading-block center nomargin">
+        <h3>Strutur Organisasi</h3>
+        </div>
+        </div>
+        </div>
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix">
-                <div class="clear"></div>
-                <div class="heading-block title-center page-section">
-                    <h2>Struktur Organisasi</h2>
-                </div>
+                
                 <div id="oc-team-list" class="owl-carousel team-carousel carousel-widget" data-margin="30" data-nav="false" data-items-md="1" data-items-xl="2">
                     <div class="oc-item">
                         <div class="team team-list clearfix">
@@ -189,83 +193,17 @@
     
     
     <!-- Map Section Begin -->
-    <div class="clear"></div>
+    <div class="section notopmargin nobottommargin nobottomborder topborder">
+        <div class="container clearfix">
+        <div class="heading-block center nomargin">
+        <h3>Alamat</h3>
+        </div>
+        </div>
+        </div>
     <section id="section-alamat"></section>
-    <div class="heading-block title-center page-section">
-        <h2>Alamat</h2>
-    </div>
     <div class="contact-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.835834958933!2d113.89598131423784!3d-2.2155282379692793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dfcb387eff927dd%3A0x26ab0c830a2ede08!2sUKM%20SAKTI!5e0!3m2!1sid!2sid!4v1583033711447!5m2!1sid!2sid" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         <div class="map-hover"></div>
     </div>
     <!-- Map Section End -->
-    
-
-    <!-- Contact Section Begin -->
-    <section id="page-title">
-        <div class="clear"></div>
-    </section>
-    <div id="page-menu">
-        <div id="page-menu-wrap">
-            <div class="container clearfix">
-                <div class="menu-title"><span>Contact</span></div>
-                <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
-            </div>
-        </div>
-    </div>
-    
-    <section id="map-overlay">
-        <div class="container clearfix">
-            <div id="contact-form-overlay" class="clearfix">
-                <div class="fancy-title title-dotted-border">
-                    <h3>Send us an Email</h3>
-                </div>
-                <div class="form-widget">
-                    <div class="form-result"></div>
-                    <form class="nobottommargin" id="template-contactform" name="template-contactform" action="http://themes.semicolonweb.com/html/canvas/include/form.php" method="post">
-                        <div class="col_half">
-                            <label for="template-contactform-name">Name <small>*</small></label>
-                            <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
-                        </div>
-                        <div class="col_half col_last">
-                            <label for="template-contactform-email">Email <small>*</small></label>
-                            <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
-                        </div>
-                        <div class="clear"></div>
-                        <div class="col_half">
-                            <label for="template-contactform-phone">Phone</label>
-                            <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
-                        </div>
-                        <div class="col_half col_last">
-                            <label for="template-contactform-service">Services</label>
-                            <select id="template-contactform-service" name="template-contactform-service" class="sm-form-control">
-                                <option value="">-- Select One --</option>
-                                <option value="Div Programming">Div Programming</option>
-                                <option value="Div Robotik">Div Robotik</option>
-                                <option value="Div Multimedia">Div Multimedia</option>
-                            </select>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="col_full">
-                            <label for="template-contactform-subject">Subject <small>*</small></label>
-                            <input type="text" id="template-contactform-subject" name="subject" value="" class="required sm-form-control" />
-                        </div>
-                        <div class="col_full">
-                            <label for="template-contactform-message">Message <small>*</small></label>
-                            <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
-                        </div>
-                        <div class="col_full hidden">
-                            <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
-                        </div>
-                        <div class="col_full">
-                            <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
-                        </div>
-                        <input type="hidden" name="prefix" value="template-contactform-">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <section id="google-map" class="gmap"></section>
-    </section>
-    <!-- Contact Section End -->
 @endsection

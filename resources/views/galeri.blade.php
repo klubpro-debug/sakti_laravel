@@ -2,7 +2,7 @@
 
 @section('title','Galeri')
 @section('nav')
-    @extends('layouts.nav')
+    @include('layouts.nav')
 @endsection
 
 @section('content')
