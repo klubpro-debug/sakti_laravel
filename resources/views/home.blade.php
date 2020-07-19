@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('nav')
-    @extends('layouts.nav')
+    @include('layouts.navtrans')
 @endsection
 
 @section('content')    
