@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="SAKTIWeb" />
-    @include('layout.style')
+    @include('layouts.style')
     @yield('style')
     <title>@yield('title')</title>
 </head>
@@ -15,7 +15,7 @@
         @yield('jumbotron')
         @yield('content')
         @yield('content1')
-        @include('layout.footer')
+        @include('layouts.footer')
     </div>
 </body>
 </html>

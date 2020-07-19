@@ -3,7 +3,7 @@
         <div class="footer-widgets-wrap clearfix">
             <div class="col_one_third">
                 <div class="widget clearfix">
-                    <img src="theme/images/Logo Sakti.png'" width="120px" height="120px" alt="" class="footer-logo">
+                    <img src="theme/images/Logo Sakti.png" width="120px" height="120px" alt="" class="footer-logo">
                     <div style="background no-repeat center center; background-size: 100%">
                         © Copyrights by UKM SAKTI<br> Palangka Raya</a>. All rights reserved.
                     </div>
