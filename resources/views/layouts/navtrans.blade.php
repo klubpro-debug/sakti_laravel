@@ -1,0 +1,26 @@
+<header id="header" class="transparent-header full-header dark" data-sticky-class="not-dark" >
+    <div id="header-wrap">
+        <div class="container clearfix">
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <div id="logo">
+                <a href="index.html" class="standard-logo" data-dark-logo="images/logosakti.png"><img src="images/logosakti.png" alt="Sakti Logo"></a>
+                <a href="index.html" class="retina-logo" data-dark-logo="images/logosakti.png"><img src="images/logosakti.png" alt="Sakti Logo"></a>
+            </div>
+            <nav id="primary-menu" class="not-dark">
+                <ul>
+                    <li class="current"><a href="/"><div>Home</div></a></li>
+                    <li class="current"><a href="/berita"><div>Berita</div></a></li>
+                    <li class="current"><a href="#"><div>Divisi</div></a>
+                    <ul>
+                        <li><a href="/divisi"><div>Programming</div></a></li>
+                        <li><a href="/divisi"><div>Robotik</div></a></li>
+                        <li><a href="/divisi"><div>Multimedia</div></a></li>
+                    </ul>
+                    </li>
+                    <li class="current"><a href="/galeri"><div>Galeri</div></a></li>
+                    <li class="current"><a href="/about"><div>About</div></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
