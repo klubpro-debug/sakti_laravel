@@ -6,6 +6,15 @@
 ])
 
 <div class="container-fluid mt--7">
+  @if (session('status'))
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('status') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  @endif
+  
   <div class="row">
     <div class="col-xl-12">
       <div class="card">
@@ -37,8 +46,8 @@
               <tr>
                 <th scope="row">
                   <div class="media align-items-center">
-                    <a href="#" class="avatar rounded-circle mr-3">
-                      <img alt="Image placeholder" src="{{ $g->gambar }}" />
+                    <a href="uploads/{{ $g->gambar }}" class="avatar rounded-circle mr-3">
+                      <img alt="Image placeholder" src="uploads/{{ $g->gambar }}" />
                     </a>
                   </div>
                 </th>
@@ -77,7 +86,7 @@
 
             <div class="card bg-transparent border-0 mb-0">
               <div class="card-body px-lg-4 py-lg-4">
-                <form action="{{ route('list_galeri.store') }}" method="POST">
+                <form action="{{ route('list.galeri.post') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="form-group mb-3">
                     <label for="">
@@ -92,9 +101,9 @@
                       <span>Gambar : </span>
                     </label>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFileLang" name="filefoto">
+                      <input type="file" class="custom-file-input" id="customFileLang" name="file">
                       <label class="custom-file-label" for="customFileLang">Select file</label>
-                  </div>
+                    </div>
                   </div>
                   <div class="text-center">
                     <button class="btn btn-primary my-4" type="submit">Simpan</button>

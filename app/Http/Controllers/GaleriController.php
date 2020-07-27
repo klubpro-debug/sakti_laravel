@@ -16,24 +16,23 @@ class GaleriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'file' => 'required',
             'judul' => 'required',
-            'filefoto' => 'required',
         ]);
-
-        //Move Uploaded File
-        $destinationPath = public_path('uploads');
-        $request->file->move($destinationPath, $file->getClientOriginalName());
+  
+        $fileName = $request->file->getClientOriginalName();
+   
+        $request->file->move(public_path('uploads'), $fileName);
 
         $galeri = new Galeri([
             'judul' => $request->get('judul'),
-            'gambar' => $file->getClientOriginalName(),
+            'gambar' => $fileName,
+            'author' => 'Eto',
         ]);
 
-        dd($galeri);
+        $galeri->save();
 
-        // $galeri->save();
+        return back()->withStatus(__('Photo successfully uploaded.'));
 
-        // return redirect()->route('galeri.index')
-        //     ->with('success', 'Photo created successfully.');
     }
 }
