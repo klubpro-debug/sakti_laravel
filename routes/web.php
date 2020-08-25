@@ -13,9 +13,10 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/berita', function () {
-    return view('berita');
-});
+Route::get('berita/{berita:slug}', 'BeritaController@show');
+
+Route::get('berita', 'BeritaController@index');
+
 Route::get('/detailberita', function () {
     return view('detailberita');
 });

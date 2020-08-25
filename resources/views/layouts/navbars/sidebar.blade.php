@@ -85,10 +85,34 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
+                        <i class="far fa-newspaper" style="color: #00c0ef;"></i>
+                        <span class="nav-link-text">{{ __('Berita') }}</span>
+                    </a>
+                    <div class="collapse" id="navbar-examples">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('list_berita.index') }}">
+                                    {{ __('List Berita') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.index') }}">
+                                    {{ __('Post Berita') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.index') }}">
+                                    {{ __('Kategori') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
                         <i class="fas fa-users" style="color: #CCCC00;"></i>
                         <span class="nav-link-text">{{ __('Pengguna') }}</span>
                     </a>
-
                     <div class="collapse" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
