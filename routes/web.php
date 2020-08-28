@@ -40,6 +40,7 @@ Route::get('/dashboard', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('user', 'UserController', ['except' => ['show']]);
+    Route::resource('list_berita', 'BeritaController');
     Route::resource('list_galeri', 'GaleriController');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
