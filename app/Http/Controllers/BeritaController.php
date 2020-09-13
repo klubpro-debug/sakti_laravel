@@ -14,9 +14,8 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $berita = Berita::simplePaginate(5);
-
-        return view('berita.index', compact('berita'));
+        $berita = Berita::get();
+        return view('berita.show', compact('berita'));
     }
 
     /**
@@ -48,7 +47,7 @@ class BeritaController extends Controller
      */
     public function show(Berita $berita)
     {
-        return view('berita.show', compact('berita'));
+        //
     }
 
     /**
@@ -59,7 +58,7 @@ class BeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        return view('berita.edit', compact('berita'));
+        //
     }
 
     /**

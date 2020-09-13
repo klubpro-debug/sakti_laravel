@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Galeri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class GaleriController extends Controller
 {
@@ -20,7 +21,7 @@ class GaleriController extends Controller
             'judul' => 'required',
         ]);
 
-        $fileName = $request->file->getClientOriginalName();
+        $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
 
         $request->file->move(public_path('uploads'), $fileName);
 
@@ -37,11 +38,10 @@ class GaleriController extends Controller
     public function update(Request $request, Galeri $galeri, $id)
     {
         $request->validate([
-            'file' => 'required',
             'judul' => 'required',
         ]);
 
-        $fileName = $request->file->getClientOriginalName();
+        $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
 
         $request->file->move(public_path('uploads'), $fileName);
 
