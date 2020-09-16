@@ -23,9 +23,9 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">Name</th>
+                                <th scope="col">Nama</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Creation Date</th>
+                                <th scope="col">Dibuat pada</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>

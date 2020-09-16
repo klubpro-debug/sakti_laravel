@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Pendaftaran;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PendaftaranController extends Controller
 {
@@ -14,7 +15,8 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        return view('form.form');
+        $pendaftaran = Pendaftaran::get();
+        return view('pendaftaran.show', compact('pendaftaran'));
     }
 
     /**
@@ -78,8 +80,11 @@ class PendaftaranController extends Controller
      * @param  \App\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pendaftaran $pendaftaran)
+    public function destroy($id)
     {
-        //
+        $pendaftaran = Pendaftaran::find($id);
+        $pendaftaran->delete();
+
+        return back()->withStatus(__('Pendaftar berhasil dihapus.'));
     }
 }

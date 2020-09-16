@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Galeri;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class GaleriController extends Controller
@@ -35,7 +36,7 @@ class GaleriController extends Controller
         } else {
             $galeri = new Galeri;
             $galeri->judul = $request->get('judul');
-            $galeri->gambar = $fileName;
+            $galeri->gambar = $galeri->gambar;
             $galeri->user_id = Auth::user()->id;
             $galeri->author = Auth::user()->name;            
         }    

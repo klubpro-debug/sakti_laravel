@@ -138,11 +138,19 @@
                         <i class="far fa-images text-orange"></i> {{ __('Galeri') }}
                     </a>
                 </li>   
-                <li class="nav-item mb-5 bg-danger" style="position: absolute; bottom: 0;">
-                    <a class="nav-link text-white" href="{{ route('logout') }}" target="_blank">
-                        <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                <li class="nav-item">
+                    <a class="nav-link{{ request()->is('info') ? ' active' : '' }}" href="{{ route('info.index') }}">
+                        <i class="fas fa-info-circle text-cyan"></i> {{ __('Info') }}
                     </a>
-                </li>
+                </li>   
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button class="nav-item mb-5 bg-danger" type="submit" style="position: absolute; bottom: 0;">
+                        <a class="nav-link text-white">
+                            <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                        </a>
+                    </button>                    
+                </form>
             </ul>
         </div>
     </div>

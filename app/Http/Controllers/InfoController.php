@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Pendaftaran;
+use App\Info;
 use Illuminate\Http\Request;
 
-class PendaftaranController extends Controller
+class InfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        return view('form.form');
+        $info = Info::first();
+        return view('info', compact('info'));
     }
 
     /**
@@ -41,10 +42,10 @@ class PendaftaranController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Pendaftaran  $pendaftaran
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Pendaftaran $pendaftaran)
+    public function show($id)
     {
         //
     }
@@ -52,10 +53,10 @@ class PendaftaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pendaftaran  $pendaftaran
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pendaftaran $pendaftaran)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +65,10 @@ class PendaftaranController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pendaftaran  $pendaftaran
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pendaftaran $pendaftaran)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +76,10 @@ class PendaftaranController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Pendaftaran  $pendaftaran
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pendaftaran $pendaftaran)
+    public function destroy($id)
     {
         //
     }

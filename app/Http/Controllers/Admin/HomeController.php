@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Berita;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -11,6 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }    
 
     /**
      * Show the application dashboard.
@@ -19,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $berita = Berita::limit(4)->get();
-        return view('home', compact('berita'));
+        return view('dashboard');
     }
 }

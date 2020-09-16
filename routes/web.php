@@ -2,16 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/home', function () {
-    return view('home');
-});
+Route::resource('/', 'HomeController');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::resource('about', 'AboutController');
 
 Route::get('berita/{berita:slug}', 'BeritaController@show');
 
@@ -35,17 +28,18 @@ Route::get('/form', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'Admin\HomeController@index')->name('home');
+Route::resource('daftar', 'PendaftaranController');
 
 Route::group(['middleware' => 'auth'], function () {
-
-    Route::resource('user', 'UserController', ['except' => ['show']]);
-    Route::resource('list_berita', 'BeritaController');
-    Route::resource('list_galeri', 'GaleriController');
-    Route::resource('pendaftaran', 'PendaftaranController');
+    Route::resource('user', 'Admin\UserController', ['except' => ['show']]);
+    Route::resource('list_berita', 'Admin\BeritaController');
+    Route::resource('list_galeri', 'Admin\GaleriController');
+    Route::resource('pendaftaran', 'Admin\PendaftaranController');
     Route::resource('kategori', 'KategoriController');
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+    Route::resource('info', 'InfoController');
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Admin\ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'Admin\ProfileController@update']);
+	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'Admin\ProfileController@password']);
 });
 
