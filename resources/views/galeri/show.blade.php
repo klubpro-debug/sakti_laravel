@@ -24,8 +24,7 @@
               <h3 class="mb-0">Galeri</h3>
             </div>
             <div class="col text-right">
-              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-galeri">Add
-                Photo</button>
+              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-galeri">Tambah Galeri</button>
             </div>
           </div>
         </div>
@@ -38,7 +37,7 @@
                 <th scope="col" class="sort" data-sort="judul">Judul</th>
                 <th scope="col" class="sort" data-sort="tanggal">Tanggal</th>
                 <th scope="col" class="sort" data-sort="author">Author</th>
-                <th scope="col" class="sort" data-sort="aksi">Aksi</th>
+                <th scope="col" class="sort" data-sort="aksi"></th>
               </tr>
             </thead>
             <tbody>
@@ -60,14 +59,17 @@
                 <td>
                   {{ $g->author }}
                 </td>
-                <td>
-                  <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-edit{{ $g->id }}">
-                    <i class="fas fa-edit text-normal mr-3"></i>
-                  </a>
-                  <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-delete{{ $g->id }}">
-                    <i class="fas fa-trash-alt text-danger mr-3"></i>
-                  </a>
-                </td>
+                <td class="text-right">
+                  <div class="dropdown">
+                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                      <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#modal-edit{{ $g->id }}">Edit</a>
+                      <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#modal-delete{{ $g->id }}">Delete</a>
+                    </div>
+                  </div>
+                </td>                 
                 @endforeach
               </tr>
             </tbody>
@@ -82,7 +84,7 @@
       <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Photo</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Tambah Galeri</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -136,7 +138,7 @@
       <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Photo</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Edit Galeri</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -197,7 +199,7 @@
             @csrf
             @method('DELETE')
             <div class="modal-body">
-              Do you want delete this photo?
+              Anda yakin ingin menghapus {{ $g->judul }} ?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>

@@ -79,7 +79,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
+                    <a class="nav-link{{ request()->is('dashboard') ? ' active' : '' }}" href="{{ route('home') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Beranda') }}
                     </a>
                 </li>
@@ -109,28 +109,32 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
+                    <a class="nav-link" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="{{ request()->is(['profile', 'user']) ? 'true' : 'false' }}" aria-controls="navbar-examples1">
                         <i class="fas fa-users" style="color: #CCCC00;"></i>
                         <span class="nav-link-text">{{ __('Pengguna') }}</span>
                     </a>
-                    <div class="collapse" id="navbar-examples1">
+                    <div class="collapse{{ request()->is(['profile', 'user']) ? ' show' : '' }}" id="navbar-examples1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
+                                <a class="nav-link{{ request()->is('profile') ? ' active' : '' }}" href="{{ route('profile.edit') }}">
                                     {{ __('Profil Pengguna') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
+                                <a class="nav-link{{ request()->is('user') ? ' active' : '' }}" href="{{ route('user.index') }}">
                                     {{ __('Manajemen Pengguna') }}
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('list_galeri.index') }}">
+                    <a class="nav-link" href="{{ route('pendaftaran.index') }}">
+                        <i class="fas fa-tasks text-gray"></i> {{ __('Pendaftaran') }}
+                    </a>
+                </li>                   
+                <li class="nav-item">
+                    <a class="nav-link{{ request()->is('list_galeri') ? ' active' : '' }}" href="{{ route('list_galeri.index') }}">
                         <i class="far fa-images text-orange"></i> {{ __('Galeri') }}
                     </a>
                 </li>   

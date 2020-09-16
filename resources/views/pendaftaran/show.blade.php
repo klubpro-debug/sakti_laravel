@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('Manajemen Pengguna')])
+@extends('layouts.app', ['title' => __('List Pendaftar')])
 
 @section('content')
 @include('users.partials.header', [
@@ -11,7 +11,7 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Pengguna</h3>
+                            <h3 class="mb-0">Pendaftaran</h3>
                         </div>
                     </div>
                 </div>
@@ -23,9 +23,13 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">Name</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">NIM</th>
+                                <th scope="col">Fakultas</th>
+                                <th scope="col">Jurusan</th>
+                                <th scope="col">Minat</th>
+                                <th scope="col">No. WA</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Creation Date</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>

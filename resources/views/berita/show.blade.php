@@ -24,7 +24,7 @@
               <h3 class="mb-0">Berita</h3>
             </div>
             <div class="col text-right">
-              <a href="{{ route('list_berita.create') }}" class="btn btn-sm btn-primary">Add Berita</a>
+              <a href="{{ route('list_berita.create') }}" class="btn btn-sm btn-primary">Tambah Berita</a>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@
             @csrf
             @method('DELETE')
             <div class="modal-body">
-              Anda ingin menghapus {{ $g->judul }} ?
+              Anda yakin ingin menghapus {{ $g->judul }} ?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>

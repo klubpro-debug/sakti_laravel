@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Kategori;
+use App\Pendaftaran;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class PendaftaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = Kategori::get();
-        return view('kategori.show', compact('kategori'));
+        return view('pendaftaran.show');
     }
 
     /**
@@ -36,25 +35,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'kategori' => 'required',
-        ]);
-
-        $kategori = new Kategori;
-        $kategori->nama = $request->get('kategori');    
-
-        $kategori->save();
-
-        return back()->withStatus(__('Kategori berhasil ditambahkan.'));        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pendaftaran $pendaftaran)
     {
         //
     }
@@ -62,10 +52,10 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pendaftaran $pendaftaran)
     {
         //
     }
@@ -74,34 +64,22 @@ class KategoriController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pendaftaran $pendaftaran)
     {
-        $request->validate([
-            'kategori' => 'required',
-        ]);
-
-        $kategori = Kategori::find($id);
-        $kategori->nama = $request->get('kategori');    
-
-        $kategori->save();
-
-        return back()->withStatus(__('Kategori berhasil diupdate.'));              
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Pendaftaran  $pendaftaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pendaftaran $pendaftaran)
     {
-        $kategori = Kategori::find($id);
-        $kategori->delete();
-
-        return back()->withStatus(__('Kategori berhasil dihapus.'));
+        //
     }
 }

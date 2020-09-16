@@ -42,7 +42,7 @@ class GaleriController extends Controller
 
         $galeri->save();
 
-        return back()->withStatus(__('Photo successfully uploaded.'));
+        return back()->withStatus(__('Galeri berhasil ditambahkan.'));
     }
 
     public function update(Request $request, Galeri $galeri, $id)
@@ -71,13 +71,13 @@ class GaleriController extends Controller
 
         $galeri->save();
 
-        return back()->withStatus(__('Photo successfully updated.'));
+        return back()->withStatus(__('Galeri berhasil diupdate.'));
     }
     public function destroy($id)
     {
         $galeri = Galeri::find($id);
         $galeri->delete();
 
-        return back()->withStatus(__('Photo successfully deleted.'));
+        return back()->withStatus(__('Galeri berhasil dihapus.'));
     }
 }
