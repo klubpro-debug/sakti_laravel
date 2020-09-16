@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Galeri;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GaleriController extends Controller
 {
@@ -21,14 +22,23 @@ class GaleriController extends Controller
             'judul' => 'required',
         ]);
 
-        $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
+        if ($request->hasFile('file')) {
+            $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
 
-        $request->file->move(public_path('uploads'), $fileName);
-
-        $galeri = new Galeri;
-        $galeri->judul = $request->get('judul');
-        $galeri->gambar = $fileName;
-        $galeri->author = 'Eto';
+            $request->file->move(public_path('uploads'), $fileName);
+    
+            $galeri = new Galeri;
+            $galeri->judul = $request->get('judul');
+            $galeri->gambar = $fileName;
+            $galeri->user_id = Auth::user()->id;
+            $galeri->author = Auth::user()->name;
+        } else {
+            $galeri = new Galeri;
+            $galeri->judul = $request->get('judul');
+            $galeri->gambar = $fileName;
+            $galeri->user_id = Auth::user()->id;
+            $galeri->author = Auth::user()->name;            
+        }    
 
         $galeri->save();
 
@@ -41,14 +51,23 @@ class GaleriController extends Controller
             'judul' => 'required',
         ]);
 
-        $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
+        if ($request->hasFile('file')) {
+            $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
 
-        $request->file->move(public_path('uploads'), $fileName);
-
-        $galeri = Galeri::find($id);
-        $galeri->judul = $request->get('judul');
-        $galeri->gambar = $fileName;
-        $galeri->author = 'Eto';
+            $request->file->move(public_path('uploads'), $fileName);
+    
+            $galeri = Galeri::find($id);
+            $galeri->judul = $request->get('judul');
+            $galeri->gambar = $fileName;
+            $galeri->user_id = Auth::user()->id;
+            $galeri->author = Auth::user()->name;  
+        } else {
+            $galeri = Galeri::find($id);
+            $galeri->judul = $request->get('judul');
+            $galeri->gambar = $galeri->gambar;
+            $galeri->user_id = Auth::user()->id;
+            $galeri->author = Auth::user()->name;  
+        }
 
         $galeri->save();
 

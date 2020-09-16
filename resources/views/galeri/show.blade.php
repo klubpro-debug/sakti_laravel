@@ -31,8 +31,8 @@
         </div>
         <div class="table-responsive">
           <!-- Projects table -->
-          <table class="table align-items-center table-dark">
-            <thead class="thead-dark">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort" data-sort="gambar">Gambar</th>
                 <th scope="col" class="sort" data-sort="judul">Judul</th>

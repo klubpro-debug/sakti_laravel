@@ -84,24 +84,24 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
+                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="{{ request()->is(['list_berita', 'list_berita/create' , 'kategori']) ? 'true' : 'false' }}" aria-controls="navbar-examples">
                         <i class="far fa-newspaper" style="color: #00c0ef;"></i>
                         <span class="nav-link-text">{{ __('Berita') }}</span>
                     </a>
-                    <div class="collapse" id="navbar-examples">
+                    <div class="collapse{{ request()->is(['list_berita', 'list_berita/create', 'kategori']) ? ' show' : '' }}" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('list_berita.index') }}">
+                                <a class="nav-link{{ request()->is('list_berita') ? ' active' : '' }}" href="{{ route('list_berita.index') }}">
                                     {{ __('List Berita') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
-                                    {{ __('Post Berita') }}
+                                <a class="nav-link{{ request()->is('list_berita/create') ? ' active' : '' }}" href="{{ route('list_berita.create') }}">
+                                    {{ __('Tambah Berita') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
+                                <a class="nav-link{{ request()->is('kategori') ? ' active' : '' }}" href="{{ route('kategori.index') }}">
                                     {{ __('Kategori') }}
                                 </a>
                             </li>
@@ -109,11 +109,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
+                    <a class="nav-link" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
                         <i class="fas fa-users" style="color: #CCCC00;"></i>
                         <span class="nav-link-text">{{ __('Pengguna') }}</span>
                     </a>
-                    <div class="collapse" id="navbar-examples">
+                    <div class="collapse" id="navbar-examples1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -130,7 +130,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="list_galeri">
+                    <a class="nav-link" href="{{ route('list_galeri.index') }}">
                         <i class="far fa-images text-orange"></i> {{ __('Galeri') }}
                     </a>
                 </li>   

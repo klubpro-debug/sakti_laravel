@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app', ['title' => __('List Berita')])
 
 @section('content')
 @include('users.partials.header', [
@@ -24,21 +24,21 @@
               <h3 class="mb-0">Berita</h3>
             </div>
             <div class="col text-right">
-              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-berita">Add
-                Berita</button>
+              <a href="{{ route('list_berita.create') }}" class="btn btn-sm btn-primary">Add Berita</a>
             </div>
           </div>
         </div>
         <div class="table-responsive">
           <!-- Projects table -->
-          <table class="table align-items-center table-dark">
-            <thead class="thead-dark">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort" data-sort="gambar">Gambar</th>
                 <th scope="col" class="sort" data-sort="judul">Judul</th>
                 <th scope="col" class="sort" data-sort="tanggal">Tanggal</th>
                 <th scope="col" class="sort" data-sort="author">Author</th>
-                <th scope="col" class="sort" data-sort="aksi">Aksi</th>
+                <th scope="col" class="sort" data-sort="kategori">Kategori</th>
+                <th scope="col" class="sort" data-sort="aksi"></th>
               </tr>
             </thead>
             <tbody>
@@ -61,70 +61,23 @@
                   {{ $g->author }}
                 </td>
                 <td>
-                  <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-edit{{ $g->id }}">
-                    <i class="fas fa-edit text-normal mr-3"></i>
-                  </a>
-                  <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-delete{{ $g->id }}">
-                    <i class="fas fa-trash-alt text-danger mr-3"></i>
-                  </a>
+                  {{ $g->kategori->nama }}
                 </td>
+                <td class="text-right">
+                  <div class="dropdown">
+                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                      <a class="dropdown-item" href="{{ route('list_berita.edit', $g->id) }}">Edit</a>
+                      <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#modal-delete{{ $g->id }}">Delete</a>
+                    </div>
+                  </div>
+                </td>                
                 @endforeach
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-    </div>
-
-    {{-- modal add berita --}}
-    <div class="modal fade" id="modal-berita" tabindex="-1" role="dialog" aria-labelledby="modal-berita"
-      aria-hidden="true">
-      <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Berita</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body p-0">
-
-            <div class="card bg-transparent border-0 mb-0">
-              <div class="card-body px-lg-4 py-lg-4">
-                <form action="{{ route('list_berita.store') }}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="form-group mb-3">
-                    <label for="">
-                      <span>Judul : </span>
-                    </label>
-                    <div class="input-group input-group-merge input-group-alternative">
-                      <input class="form-control" type="text" name="judul">
-                    </div>
-                  </div>
-                  <div class="form-group mb-3">
-                    <label for="">
-                      <span>Gambar : </span>
-                    </label>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFileLang" name="file">
-                      <label class="custom-file-label" for="customFileLang">Select file</label>
-                    </div>
-                  </div>
-                  <div class="form-group mb-3" id="preview" style="display: none">
-                    <label for="">
-                      <span>Preview : </span>
-                    </label>
-                    <div>
-                      <img id="image_preview_container" alt="" width="150" height="150">
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <button class="btn btn-primary my-4" type="submit" id="upload_image_form">Simpan</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -145,7 +98,7 @@
 
             <div class="card bg-transparent border-0 mb-0">
               <div class="card-body px-lg-4 py-lg-4">
-                <form action="{{ route('list_berita.update', $g->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('list_galeri.update', $g->id) }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')
                   <div class="form-group mb-3">
@@ -197,7 +150,7 @@
             @csrf
             @method('DELETE')
             <div class="modal-body">
-              Do you want delete this berita?
+              Anda ingin menghapus {{ $g->judul }} ?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
