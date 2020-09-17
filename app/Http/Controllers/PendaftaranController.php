@@ -14,7 +14,8 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        return view('form.form');
+        $pendaftaran = new Pendaftaran;
+        return view('form.form', compact('pendaftaran'));
     }
 
     /**
@@ -35,7 +36,33 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'nama' => 'required',
+            'nim' => 'required',
+            'fakultas' => 'required',
+            'jurusan' => 'required',
+            'minat' => 'required',
+            'divisi' => 'required',
+            'whatsapp' => 'required|numeric',
+            'instagram' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $pendaftaran = new Pendaftaran;
+        $pendaftaran->nama = $request->get('nama');
+        $pendaftaran->nim = $request->get('nim');
+        $pendaftaran->fakultas = $request->get('fakultas');
+        $pendaftaran->jurusan = $request->get('jurusan');
+        $pendaftaran->minat = $request->get('minat');
+        $pendaftaran->divisi = $request->get('divisi');
+        $pendaftaran->whatsapp = $request->get('whatsapp');
+        $pendaftaran->instagram = $request->get('instagram');
+        $pendaftaran->email = $request->get('email');
+
+        $pendaftaran->save();
+
+        return back()->withStatus(__('Terimakasih telah mendaftar.'));
     }
 
     /**

@@ -20,7 +20,9 @@ class CreatePendaftaranTable extends Migration
             $table->string('fakultas');
             $table->string('jurusan');
             $table->string('minat');
-            $table->string('no_wa');
+            $table->string('divisi');
+            $table->string('whatsapp');
+            $table->string('instagram');
             $table->string('email');
             $table->timestamps();
         });

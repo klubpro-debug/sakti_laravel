@@ -28,7 +28,8 @@ Route::get('/form', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'Admin\HomeController@index')->name('home');
+Route::get('dashboard', 'Admin\HomeController@index')->name('home');
+
 Route::resource('daftar', 'PendaftaranController');
 
 Route::group(['middleware' => 'auth'], function () {
