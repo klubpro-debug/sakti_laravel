@@ -11,7 +11,7 @@
             <nav id="primary-menu" class="not-dark">
                 <ul>
                     <li class="current"><a href="/">
-                            <div>Home</div>
+                            <div {{ request()->is('/') ? " style=color:#1abc9c" : '' }}>Home</div>
                         </a></li>
                     <li class="current"><a href="/berita">
                             <div>Berita</div>
@@ -35,10 +35,10 @@
                             <div>Galeri</div>
                         </a></li>
                     <li class="current"><a href="/about">
-                            <div>About</div>
+                            <div {{ request()->is('about') ? " style=color:#1abc9c" : '' }}>About</div>
                         </a></li>
                     <li class="current"><a href="/daftar">
-                            <div class="d-flex align-items-center" style="color: #1abc9c;"><i class="fas fa-tasks"></i>Daftar</div>
+                            <div class="d-flex align-items-center" style="color: #ffc107;"><i class="fas fa-tasks"></i>Daftar</div>
                         </a></li>
                 </ul>              
             </nav>

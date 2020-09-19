@@ -100,7 +100,7 @@
                                         @enderror                                              
                                     </div>
                                 </div>
-                                <div class="col-6 form-group">
+                                <div class="col-12">
                                     <label>Sosial Media</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -115,7 +115,7 @@
                                     </span>
                                     @enderror                                          
                                 </div>
-                                <div class="col-6 form-group">
+                                <div class="col-12">
                                     <label for="">&nbsp;</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">

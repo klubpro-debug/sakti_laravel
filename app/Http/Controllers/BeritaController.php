@@ -12,4 +12,10 @@ class BeritaController extends Controller
         $berita = Berita::get();
         return view('berita', compact('berita'));
     }
+
+    public function show($slug)
+    {
+        $berita = Berita::where('slug', $slug)->firstOrFail();
+        return view('detailberita', compact('berita'));
+    }
 }

@@ -17,7 +17,7 @@ class CreateStrukturTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('jabatan');
-            $table->string('bio');
+            $table->text('bio');
             $table->string('gambar');
             $table->timestamps();
         });

@@ -56,9 +56,10 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $info = Info::first();
+        return view('info.update', compact('info'));
     }
 
     /**
@@ -70,7 +71,13 @@ class InfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $info = Info::find($id);
+        $info->visi = $request->get('visi');
+        $info->misi = $request->get('misi');
+
+        $info->save();
+
+        return back()->withStatus(__('Info berhasil diupdate.'));
     }
 
     /**

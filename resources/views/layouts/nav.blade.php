@@ -3,9 +3,9 @@
         <div class="container clearfix">
             <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
             <div id="logo">
-                <a href="index.html" class="standard-logo" data-dark-logo="{{ asset('images/logosakti.png') }}"><img
+                <a href="{{ route('awal') }}" class="standard-logo" data-dark-logo="{{ asset('images/logosakti.png') }}"><img
                         src="{{ asset('images/logosakti.png') }}" alt="Sakti Logo"></a>
-                <a href="index.html" class="retina-logo" data-dark-logo="{{ asset('images/logosakti.png') }}"><img
+                <a href="{{ route('awal') }}" class="retina-logo" data-dark-logo="{{ asset('images/logosakti.png') }}"><img
                         src="{{ asset('images/logosakti.png') }}" alt="Sakti Logo"></a>
             </div>
             <nav id="primary-menu">
@@ -14,10 +14,10 @@
                             <div>Home</div>
                         </a></li>
                     <li class=""><a href="/berita">
-                            <div>Berita</div>
+                            <div {{ request()->is('berita') ? " style=color:#1abc9c" : '' }}>Berita</div>
                         </a></li>
                     <li class=""><a href="#">
-                            <div>Divisi</div>
+                            <div {{ request()->is('divisi') ? " style=color:#1abc9c" : '' }}>Divisi</div>
                         </a>
                         <ul>
                             <li><a href="/divisi">
@@ -32,14 +32,14 @@
                         </ul>
                     </li>
                     <li class=""><a href="/galeri">
-                            <div>Galeri</div>
+                            <div {{ request()->is('galeri') ? " style=color:#1abc9c" : '' }}>Galeri</div>
                         </a></li>
                     <li class=""><a href="/about">
                             <div>About</div>
                         </a>
                     </li>
                     <li class=""><a href="/daftar">
-                        <div class="d-flex align-items-center"{{ request()->is('daftar') ? " style=color:#1abc9c" : '' }}><i class="fas fa-tasks"></i>Daftar</div>
+                        <div class="d-flex align-items-center"{{ request()->is('daftar') ? " style=color:#1abc9c" : '' }} style="color: #ffc107;"><i class="fas fa-tasks"></i>Daftar</div>
                         </a>
                     </li>
                 </ul>

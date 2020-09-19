@@ -1,6 +1,6 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('nav')
-    @include('layout.nav')
+    @include('layouts.nav')
 @endsection
 @section('content')
 <section id="page-title">

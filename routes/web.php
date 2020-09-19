@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::resource('/', 'HomeController');
+Route::get('/', 'HomeController@index')->name('awal');
 
 Route::resource('about', 'AboutController');
 
@@ -31,6 +31,7 @@ Auth::routes();
 Route::get('dashboard', 'Admin\HomeController@index')->name('home');
 
 Route::resource('daftar', 'PendaftaranController');
+Route::resource('galeri', 'GaleriController');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'Admin\UserController', ['except' => ['show']]);
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('pendaftaran', 'Admin\PendaftaranController');
     Route::resource('kategori', 'KategoriController');
     Route::resource('info', 'InfoController');
+    Route::resource('struktur', 'StrukturController');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'Admin\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'Admin\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'Admin\ProfileController@password']);

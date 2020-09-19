@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Berita;
+use App\Galeri;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,7 @@ class HomeController extends Controller
     public function index()
     {
         $berita = Berita::limit(4)->get();
-        return view('home', compact('berita'));
+        $galeri = Galeri::get();
+        return view('home', compact(['berita', 'galeri']));
     }
 }

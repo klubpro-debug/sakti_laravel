@@ -143,6 +143,11 @@
                         <i class="fas fa-info-circle text-cyan"></i> {{ __('Info') }}
                     </a>
                 </li>   
+                <li class="nav-item">
+                    <a class="nav-link{{ request()->is('struktur') ? ' active' : '' }}" href="{{ route('struktur.index') }}">
+                        <i class="fas fa-sitemap text-pink"></i> {{ __('Struktur') }}
+                    </a>
+                </li>   
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
                     <button class="nav-item mb-5 bg-danger" type="submit" style="position: absolute; bottom: 0;">
