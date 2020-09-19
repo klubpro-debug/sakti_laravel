@@ -50,7 +50,7 @@
                                 <td>{{ $p->fakultas }}</td>
                                 <td>{{ $p->jurusan }}</td>
                                 <td>{{ $p->minat }}</td>
-                                <td>{{ $p->no_wa }}</td>
+                                <td>{{ $p->whatsapp }}</td>
                                 <td>{{ $p->email }}</td>
                                 <td class="text-right">
                                     <div class="dropdown">
