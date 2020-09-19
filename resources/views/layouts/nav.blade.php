@@ -17,16 +17,16 @@
                             <div {{ request()->is('berita') ? " style=color:#1abc9c" : '' }}>Berita</div>
                         </a></li>
                     <li class=""><a href="#">
-                            <div {{ request()->is('divisi') ? " style=color:#1abc9c" : '' }}>Divisi</div>
+                            <div {{ request()->is(['programming', 'robotik', 'mulmed']) ? " style=color:#1abc9c" : '' }}>Divisi</div>
                         </a>
                         <ul>
-                            <li><a href="/divisi">
+                            <li><a href="/programming">
                                     <div>Programming</div>
                                 </a></li>
-                            <li><a href="/divisi">
+                            <li><a href="/robotik">
                                     <div>Robotik</div>
                                 </a></li>
-                            <li><a href="/divisi">
+                            <li><a href="/multimedia">
                                     <div>Multimedia</div>
                                 </a></li>
                         </ul>

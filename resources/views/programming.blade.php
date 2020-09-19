@@ -2,7 +2,7 @@
 @section('nav')
     @extends('layouts.nav')
 @endsection
-@section('title','Divisi')
+@section('title','Divisi Programming')
 @section('jumbotron')
 <section id="page-title" class="page-title-parallax page-title-dark page-title-right"
     style="padding: 250px 0; background-image: url('images/about/me-parallax.jpg'); background-size: cover; background-position: center center;"
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="about-us">
-                <h3>Programming</h3>
+                <h3>Klub Programming</h3>
             </div>
         </div>        
         <div class="col-lg-6">
@@ -49,6 +49,23 @@
         </div>
     </div>
     <div class="heading-block title-center page-section">
+        <h2>Visi & Misi</h2>
+    </div>    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="about-us">
+                <h4>Visi</h4>
+            </div>
+            <p>Id aliqua adipisicing laborum ut esse in laborum esse et amet sint mollit aute. Est non sit reprehenderit eu culpa laboris ea. Irure non ut excepteur ea. Fugiat minim veniam cillum est. Cillum in anim in non labore ut exercitation officia. Proident minim eu amet dolor occaecat non nulla adipisicing amet velit enim tempor veniam dolor.</p>
+        </div>
+        <div class="col-lg-6">
+            <div class="about-quality">
+                <h4>Misi</h4>
+            </div>
+            <p>Laboris ad consectetur labore fugiat officia reprehenderit et ex quis nisi consequat esse. Do velit veniam in dolor incididunt aliquip et Lorem duis dolore. Incididunt et eu proident sit incididunt. Elit sit et esse culpa mollit duis mollit veniam velit eu minim ad veniam qui.</p>
+        </div>        
+    </div>
+    <div class="heading-block title-center page-section">
         <h2>Galeri</h2>
     </div>     
     <div id="portfolio"
@@ -65,9 +82,6 @@
     </article>        
     @endforeach        
 </div>  
-
-<div class="clear"></div>
-<div class="divider  divider-short divider-center"></div>
 <div class="heading-block title-center page-section">
     <h2>Berita</h2>
 </div>       

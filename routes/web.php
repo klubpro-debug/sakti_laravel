@@ -32,6 +32,8 @@ Route::get('dashboard', 'Admin\HomeController@index')->name('home');
 
 Route::resource('daftar', 'PendaftaranController');
 Route::resource('galeri', 'GaleriController');
+Route::resource('divisi', 'DivisiController');
+Route::get('divisi/{divisi:nama}', 'DivisiController@show');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'Admin\UserController', ['except' => ['show']]);
