@@ -16,11 +16,15 @@ class CreateGaleriTable extends Migration
         Schema::create('galeri', function (Blueprint $table) {
             $table->increments('id');
             $table->string('judul');
-            $table->timestamp('tanggal');
             $table->string('gambar');
+            $table->unsignedBigInteger('kategori_id');
             $table->unsignedBigInteger('user_id');
             $table->string('author');
             $table->timestamps();
+            $table->foreign('kategori_id')
+                ->references('id')
+                ->on('kategori')
+                ->onDelete('cascade');               
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')

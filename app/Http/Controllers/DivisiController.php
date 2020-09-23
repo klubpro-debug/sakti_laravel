@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Berita;
-use App\Galeri;
+use App\Divisi;
 use Illuminate\Http\Request;
 
 class DivisiController extends Controller
 {
     public function index()
     {
-        $galeri = Galeri::get();
-        $berita = Berita::get();
-        return view('divisi', compact(['galeri', 'berita']));
+        //
     }
 
     public function show($nama)
     {
-        $berita = Berita::where('slug', $nama)->firstOrFail();
-        return view('detailberita', compact('berita'));
+        $divisi = Divisi::where('nama', $nama)->firstOrFail();
+        $galeri = $divisi->kategori->galeri;
+        $berita = $divisi->kategori->berita;
+        return view('divisi', compact(['divisi', 'nama', 'galeri', 'berita']));
     }    
 }

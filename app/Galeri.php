@@ -13,5 +13,9 @@ class Galeri extends Model
         'gambar',
         'author',
     ];
-    //
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class);
+    } 
 }

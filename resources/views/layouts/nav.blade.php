@@ -20,13 +20,13 @@
                             <div {{ request()->is(['programming', 'robotik', 'mulmed']) ? " style=color:#1abc9c" : '' }}>Divisi</div>
                         </a>
                         <ul>
-                            <li><a href="/programming">
+                            <li><a href="/divisi/programming">
                                     <div>Programming</div>
                                 </a></li>
-                            <li><a href="/robotik">
+                            <li><a href="/divisi/robotik">
                                     <div>Robotik</div>
                                 </a></li>
-                            <li><a href="/multimedia">
+                            <li><a href="/divisi/multimedia">
                                     <div>Multimedia</div>
                                 </a></li>
                         </ul>

@@ -2,7 +2,7 @@
 @section('nav')
 @extends('layouts.nav')
 @endsection
-@section('title','Home')
+@section('title','Berita')
 @section('content')
 {{-- KONTEN BERITA --}}
 <section id="content" class="py-4">

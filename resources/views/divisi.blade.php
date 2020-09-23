@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('nav')
-    @extends('layouts.nav')
+@include('layouts.navtrans')
 @endsection
-@section('title','Divisi')
+@section('title','Divisi '.ucfirst($nama))
 @section('jumbotron')
 <section id="page-title" class="page-title-parallax page-title-dark page-title-right"
-    style="padding: 250px 0; background-image: url('images/about/me-parallax.jpg'); background-size: cover; background-position: center center;"
+    style="padding: 250px 0; background-image: url('{{ asset('') }}images/about/me-parallax.jpg'); background-size: cover; background-position: center center;"
     data-bottom-top="background-position:0px 440px;" data-top-bottom="background-position:0px -500px;">
     <div class="container clearfix">
         <h1>SAKTI</h1>
@@ -28,24 +28,20 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="about-us">
-                <h3>Programming</h3>
+                <h3>Divisi {{ ucfirst($nama) ?? '' }}</h3>
             </div>
         </div>        
         <div class="col-lg-6">
             <div class="about-us">
                 <h4>Latar Belakang</h4>
             </div>
-            <p>Id aliqua adipisicing laborum ut esse in laborum esse et amet sint mollit aute. Est non sit reprehenderit eu culpa laboris ea. Irure non ut excepteur ea. Fugiat minim veniam cillum est. Cillum in anim in non labore ut exercitation officia. Proident minim eu amet dolor occaecat non nulla adipisicing amet velit enim tempor veniam dolor.</p>
+            <p>{!! $divisi->latar_belakang !!}</p>
         </div>
         <div class="col-lg-6">
             <div class="about-quality">
                 <h4>Kegiatan</h4>
             </div>
-            <ul>
-                <li>Tempor veniam adipisicing reprehenderit reprehenderit mollit ad proident non minim esse nulla reprehenderit.</li>
-                <li>Ea sint adipisicing laborum enim velit anim aute aliqua ea eu minim non exercitation do.</li>
-                <li>Voluptate excepteur anim magna magna mollit excepteur ipsum elit fugiat reprehenderit fugiat mollit nostrud in.</li>
-            </ul>
+            <p>{!! $divisi->kegiatan !!}</p>
         </div>
     </div>
     <div class="heading-block title-center page-section">
@@ -70,7 +66,36 @@
 <div class="divider  divider-short divider-center"></div>
 <div class="heading-block title-center page-section">
     <h2>Berita</h2>
-</div>       
+</div>     
+<div class="container clearfix">
+    <div class="row">
+        @foreach ($berita as $b)
+        <div class="col-lg-3 col-md-6 bottommargin">
+            <div class="ipost clearfix">
+                <div class="entry-image">
+                    <a href="berita/{{ $b->slug }}"><img class="image_fade"
+                            src="{{ asset('uploads') }}/{{ $b->gambar }}" alt="Image"></a>
+                </div>
+                <div class="entry-title">
+                    <h3><a href="berita/{{ $b->slug }}">{{ $b->judul }}</a></h3>
+                </div>
+                <ul class="entry-meta clearfix">
+                    <li><i class="icon-calendar3"></i> {{ $b->created_at->format('d F, Y') }}</li>
+                    <li><i class="icon-user"></i> {{ $b->author }}</li>
+                    <li><a href="kategori/{{ $b->kategori_nama }}"><i class="icon-tag"></i>
+                            {{ $b->kategori_nama }}</a></li>
+                </ul>
+                <div class="entry-content">
+                    {!! Str::limit($b->isi, 100) !!}
+                </div>
+                <div class="py-4">
+                    <a href="berita/{{ $b->slug }}">Read More</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>  
 </div>
 <!-- Visi Misi Section End -->
 @endsection

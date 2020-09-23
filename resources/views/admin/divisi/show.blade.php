@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('List Berita')])
+@extends('layouts.app', ['title' => __('List Divisi')])
 
 @section('content')
 @include('users.partials.header', [
@@ -14,16 +14,17 @@
     </button>
   </div>
   @endif
+
   <div class="row">
     <div class="col-xl-12">
       <div class="card">
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Berita</h3>
+              <h3 class="mb-0">Divisi</h3>
             </div>
             <div class="col text-right">
-              <a href="{{ route('list_berita.create') }}" class="btn btn-sm btn-primary">Tambah Berita</a>
+              <a href="{{ route('list_berita.create') }}" class="btn btn-sm btn-primary">Tambah Divisi</a>
             </div>
           </div>
         </div>
@@ -33,15 +34,15 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort" data-sort="gambar">Gambar</th>
-                <th scope="col" class="sort" data-sort="judul">Judul</th>
-                <th scope="col" class="sort" data-sort="tanggal">Tanggal</th>
-                <th scope="col" class="sort" data-sort="author">Author</th>
+                <th scope="col" class="sort" data-sort="nama">Nama</th>
+                <th scope="col" class="sort" data-sort="latar_belakang">Latar Belakang</th>
+                <th scope="col" class="sort" data-sort="kegiatan">Kegiatan</th>
                 <th scope="col" class="sort" data-sort="kategori">Kategori</th>
                 <th scope="col" class="sort" data-sort="aksi"></th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($berita as $g)
+              {{-- @foreach ($berita as $g)
               <tr>
                 <th scope="row">
                   <div class="media align-items-center">
@@ -73,7 +74,7 @@
                     </div>
                   </div>
                 </td>                
-                @endforeach
+                @endforeach --}}
               </tr>
             </tbody>
           </table>
@@ -82,7 +83,7 @@
     </div>
 
     {{-- modal edit berita --}}
-    @foreach ($berita as $g)
+    {{-- @foreach ($berita as $g)
     <div class="modal fade" id="modal-edit{{ $g->id }}" tabindex="-1" role="dialog" aria-labelledby="modal-berita"
       aria-hidden="true">
       <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
@@ -136,11 +137,11 @@
         </div>
       </div>
     </div>
-    @endforeach
+    @endforeach --}}
 
 
     <!-- Modal delete berita -->
-    @foreach ($berita as $g)
+    {{-- @foreach ($berita as $g)
     <div class="modal fade" id="modal-delete{{ $g->id }}" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -159,7 +160,7 @@
         </form>
       </div>
     </div>
-    @endforeach
+    @endforeach --}}
 
     @include('layouts.footers.auth')
   </div>

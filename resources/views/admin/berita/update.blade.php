@@ -62,7 +62,7 @@
                 <span>Kategori : </span>
               </label>
               <select name="kategori" class="form-control" data-toggle="select" title="Simple select"
-                data-live-search="true" data-live-search-placeholder="Search ...">                
+                data-live-search="true" data-live-search-placeholder="Search ...">   
                 <option value="{{ $berita->kategori->id }}">{{ $berita->kategori->nama }}</option>
                 @foreach ($kategori as $k)
                 <option value="{{ $k->id }}">{{ $k->nama }}</option>

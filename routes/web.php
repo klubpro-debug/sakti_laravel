@@ -10,12 +10,10 @@ Route::get('berita/{berita:slug}', 'BeritaController@show');
 
 Route::get('berita', 'BeritaController@index');
 
+Route::get('divisi/{divisi:nama}', 'DivisiController@show');
+
 Route::get('/detailberita', function () {
     return view('detailberita');
-});
-
-Route::get('/divisi', function () {
-    return view('divisi');
 });
 
 Route::get('/galeri', function () {
@@ -32,12 +30,11 @@ Route::get('dashboard', 'Admin\HomeController@index')->name('home');
 
 Route::resource('daftar', 'PendaftaranController');
 Route::resource('galeri', 'GaleriController');
-Route::resource('divisi', 'DivisiController');
-Route::get('divisi/{divisi:nama}', 'DivisiController@show');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'Admin\UserController', ['except' => ['show']]);
     Route::resource('list_berita', 'Admin\BeritaController');
+    Route::resource('list_divisi', 'Admin\DivisiController');
     Route::resource('list_galeri', 'Admin\GaleriController');
     Route::resource('pendaftaran', 'Admin\PendaftaranController');
     Route::resource('kategori', 'KategoriController');

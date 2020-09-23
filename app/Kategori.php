@@ -15,4 +15,14 @@ class Kategori extends Model
     {
         return $this->hasMany(Berita::class);
     }
+
+    public function divisi()
+    {
+        return $this->hasMany(Divisi::class);
+    }    
+
+    public function galeri()
+    {
+        return $this->hasMany(Galeri::class);
+    }    
 }
