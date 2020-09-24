@@ -47,6 +47,7 @@
     <div class="content-wrap">
         <div class="container clearfix">
             <div class="clear"></div>
+            <div class="divider  divider-short divider-center"></div>
             <div class="heading-block title-center page-section">
                 <h2>Struktur Organisasi</h2>
             </div>
@@ -79,7 +80,7 @@
 
 <!-- Map Section Begin -->
 <div class="clear"></div>
-<section id="section-alamat"></section>
+<div class="divider  divider-short divider-center"></div>
 <div class="heading-block title-center page-section">
     <h2>Alamat</h2>
 </div>

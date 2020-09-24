@@ -11,7 +11,7 @@ class AboutController extends Controller
     public function index()
     {
         $info = Info::first();
-        $struktur = Struktur::get();
+        $struktur = Struktur::where('kategori_id', 4)->get();
         return view('about', compact(['info', 'struktur']));
     }
 }

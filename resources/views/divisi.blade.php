@@ -51,6 +51,8 @@
             <p>{!! $divisi->kegiatan !!}</p>
         </div>
     </div>
+    <div class="clear"></div>
+    <div class="divider  divider-short divider-center"></div>    
     <div class="heading-block title-center page-section">
         <h2>Galeri</h2>
     </div>     
@@ -68,12 +70,12 @@
     </article>        
     @endforeach        
 </div>  
-
 <div class="clear"></div>
-<div class="heading-block title-center page-section">
-    <h2>Berita</h2>
-</div>     
+<div class="divider  divider-short divider-center"></div>    
 <div class="container clearfix">
+    <div class="heading-block title-center page-section">
+        <h2>Berita</h2>
+    </div>       
     <div class="row">
         @foreach ($berita as $b)
         <div class="col-lg-3 col-md-6 bottommargin">
@@ -104,6 +106,8 @@
 </div>  
 </div>
 
+<div class="clear"></div>
+<div class="divider  divider-short divider-center"></div>  
 <!-- Struktur Begin -->
 <section id="content">
     <div class="content-wrap">
@@ -136,6 +140,8 @@
         </div>
     </div>
 </section>
+<div class="clear"></div>
+<div class="divider  divider-short divider-center"></div>
 <!-- Struktur End -->
 </div>
 <!-- Visi Misi Section End -->
