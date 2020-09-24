@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kategori;
 use App\Struktur;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,9 @@ class StrukturController extends Controller
      */
     public function index()
     {
+        $kategori = Kategori::get();
         $struktur = Struktur::get();
-        return view('struktur.show', compact('struktur'));
+        return view('struktur.show', compact(['kategori', 'struktur']));
     }
 
     /**
@@ -45,12 +47,14 @@ class StrukturController extends Controller
             $struktur->nama = $request->get('nama');
             $struktur->jabatan = $request->get('jabatan');
             $struktur->bio = $request->get('bio');
+            $struktur->kategori_id = $request->get('kategori');
             $struktur->gambar = $fileName;
         } else {
             $struktur = new Struktur;
             $struktur->nama = $request->get('nama');
             $struktur->jabatan = $request->get('jabatan');
             $struktur->bio = $request->get('bio');
+            $struktur->kategori_id = $request->get('kategori');
             $struktur->gambar = $struktur->gambar;
         }    
 
@@ -99,12 +103,14 @@ class StrukturController extends Controller
             $struktur->nama = $request->get('nama');
             $struktur->jabatan = $request->get('jabatan');
             $struktur->bio = $request->get('bio');
+            $struktur->kategori_id = $request->get('kategori');
             $struktur->gambar = $fileName;
         } else {
             $struktur = Struktur::find($id);
             $struktur->nama = $request->get('nama');
             $struktur->jabatan = $request->get('jabatan');
             $struktur->bio = $request->get('bio');
+            $struktur->kategori_id = $request->get('kategori');
             $struktur->gambar = $struktur->gambar;
         }    
 

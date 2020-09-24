@@ -21,6 +21,11 @@ class Kategori extends Model
         return $this->hasMany(Divisi::class);
     }    
 
+    public function struktur()
+    {
+        return $this->hasMany(Struktur::class);
+    }    
+
     public function galeri()
     {
         return $this->hasMany(Galeri::class);

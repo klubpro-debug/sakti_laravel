@@ -6,14 +6,16 @@ use App\Galeri;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Kategori;
 use Illuminate\Support\Facades\Auth;
 
 class GaleriController extends Controller
 {
     public function index()
     {
+        $kategori = Kategori::get();
         $galeri = Galeri::get();
-        return view('galeri.show', compact('galeri'));
+        return view('galeri.show', compact(['galeri', 'kategori']));
     }
 
     public function store(Request $request)
@@ -21,6 +23,7 @@ class GaleriController extends Controller
         $request->validate([
             'file' => 'required',
             'judul' => 'required',
+            'kategori' => 'required',
         ]);
 
         if ($request->hasFile('file')) {
@@ -31,12 +34,14 @@ class GaleriController extends Controller
             $galeri = new Galeri;
             $galeri->judul = $request->get('judul');
             $galeri->gambar = $fileName;
+            $galeri->kategori_id = $request->get('kategori');
             $galeri->user_id = Auth::user()->id;
             $galeri->author = Auth::user()->name;
         } else {
             $galeri = new Galeri;
             $galeri->judul = $request->get('judul');
             $galeri->gambar = $galeri->gambar;
+            $galeri->kategori_id = $request->get('kategori');
             $galeri->user_id = Auth::user()->id;
             $galeri->author = Auth::user()->name;            
         }    
@@ -50,6 +55,7 @@ class GaleriController extends Controller
     {
         $request->validate([
             'judul' => 'required',
+            'kategori' => 'required',
         ]);
 
         if ($request->hasFile('file')) {
@@ -60,12 +66,14 @@ class GaleriController extends Controller
             $galeri = Galeri::find($id);
             $galeri->judul = $request->get('judul');
             $galeri->gambar = $fileName;
+            $galeri->kategori_id = $request->get('kategori');
             $galeri->user_id = Auth::user()->id;
             $galeri->author = Auth::user()->name;  
         } else {
             $galeri = Galeri::find($id);
             $galeri->judul = $request->get('judul');
             $galeri->gambar = $galeri->gambar;
+            $galeri->kategori_id = $request->get('kategori');
             $galeri->user_id = Auth::user()->id;
             $galeri->author = Auth::user()->name;  
         }

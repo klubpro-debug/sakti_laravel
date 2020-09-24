@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('Tambah Berita')])
+@extends('layouts.app', ['title' => __('Tambah Divisi')])
 
 @section('head')
 <!-- Page plugins -->
@@ -20,27 +20,25 @@
   </div>
   @endif
 
-  <form action="{{ route('list_berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('list_divisi.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('PUT')
   <div class="row">
     <div class="col-xl-12">
       <div class="card">
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Edit Berita</h3>
+              <h3 class="mb-0">Tambah Divisi</h3>
             </div>
           </div>
         </div>
-        <input type="text" name="id" id="id" hidden>
         <div class="row align-items-center">
           <div class="col-md-11 ml-4 pr-0">
             <div class="input-group mb-3">
-              <input type="text" name="judul" class="form-control" value="{{ $berita->judul }}" aria-label="Judul"
+              <input type="text" name="nama" class="form-control" placeholder="Nama" aria-label="Nama"
                 aria-describedby="button-addon2">
               <div class="input-group-append">
-                <button class="btn btn-outline-primary" type="submit" id="button-addon2">Update</button>
+                <button class="btn btn-outline-primary" type="submit" id="button-addon2">Publish</button>
               </div>
             </div>
           </div>
@@ -48,11 +46,11 @@
         <div class="row">
           <div class="col-md-9">
             <div class="card-header border-0 pb-2">
-              Isi Berita
+              Bio
             </div>
             <div class="card-body pt-0">
               <div class="form-group">
-                <textarea id="ckeditor" name="isi" required>{{ $berita->isi }}</textarea>
+                <textarea id="ckeditor" name="bio" required></textarea>
               </div>
             </div>
           </div>
@@ -62,9 +60,9 @@
                 <span>Kategori : </span>
               </label>
               <select name="kategori" class="form-control" data-toggle="select" title="Simple select"
-                data-live-search="true" data-live-search-placeholder="Search ...">   
+                data-live-search="true" data-live-search-placeholder="Search ...">
                 @foreach ($kategori as $k)
-                <option value="{{ $k->id }}"{{ $berita->kategori->id == $k->id ? ' selected' : '' }}>{{ $k->nama }}</option>
+                <option value="{{ $k->id }}">{{ $k->nama }}</option>
                 @endforeach
               </select>
             </div>
@@ -77,12 +75,32 @@
                 <label class="custom-file-label" for="customFileLang">Select file</label>
               </div>
             </div>
-            <div class="form-group mb-3" id="preview"{{ $berita->gambar ? ' style="display: block"' : ' style="display: none"' }}>
+            <div class="form-group mb-3" id="preview" style="display: none">
               <label for="">
                 <span>Preview : </span>
               </label>
               <div>
-                <img id="image_preview_container" alt="" src="{{ asset('uploads') }}/{{ $berita->gambar }}" width="150" height="150">
+                <img id="image_preview_container" alt="" width="150" height="150">
+              </div>
+            </div>
+          </div>          
+          <div class="col-md-9">
+            <div class="card-header border-0 pb-2">
+              Latar Belakang
+            </div>
+            <div class="card-body pt-0">
+              <div class="form-group">
+                <textarea id="ckeditor1" name="latar_belakang" required></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="card-header border-0 pb-2">
+              Kegiatan
+            </div>
+            <div class="card-body pt-0">
+              <div class="form-group">
+                <textarea id="ckeditor2" name="kegiatan" required></textarea>
               </div>
             </div>
           </div>
@@ -92,12 +110,13 @@
   </div>
 </form>
 
-    <!-- Modal delete berita -->
-    <div class="modal fade" id="modal-delete{{ $berita->id }}" tabindex="-1" role="dialog"
+    <!-- Modal delete divisi -->
+    @foreach ($divisi as $g)
+    <div class="modal fade" id="modal-delete{{ $g->id }}" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <form action="{{ route('list_galeri.destroy', $berita->id) }}" method="POST">
+          <form action="{{ route('list_galeri.destroy', $g->id) }}" method="POST">
             @csrf
             @method('DELETE')
             <div class="modal-body">
@@ -111,6 +130,7 @@
         </form>
       </div>
     </div>
+    @endforeach
 
     @include('layouts.footers.auth')
   </div>
@@ -124,7 +144,8 @@
       // instance, using default configuration.
   
       CKEDITOR.replace('ckeditor');
-  
+      CKEDITOR.replace('ckeditor1');
+      CKEDITOR.replace('ckeditor2');
   
     });
   </script>

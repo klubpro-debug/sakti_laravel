@@ -20,8 +20,15 @@
     <div class="fancy-title title-border title-center">
         <div class="clear"></div>
         <div class="divider  divider-short divider-center"></div>
-        <div class="heading-block title-center page-section">
-            <h2>Bio</h2>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="heading-block title-center page-section">
+                    <h2>Bio</h2>
+                </div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <p>{!! $divisi->bio !!}</p>
+            </div>
         </div>
     </div>
     <img src="img/about-us.jpg" alt="">
@@ -63,7 +70,6 @@
 </div>  
 
 <div class="clear"></div>
-<div class="divider  divider-short divider-center"></div>
 <div class="heading-block title-center page-section">
     <h2>Berita</h2>
 </div>     
@@ -73,11 +79,11 @@
         <div class="col-lg-3 col-md-6 bottommargin">
             <div class="ipost clearfix">
                 <div class="entry-image">
-                    <a href="berita/{{ $b->slug }}"><img class="image_fade"
+                    <a href="{{ route('berita') }}/{{ $b->slug }}"><img class="image_fade"
                             src="{{ asset('uploads') }}/{{ $b->gambar }}" alt="Image"></a>
                 </div>
                 <div class="entry-title">
-                    <h3><a href="berita/{{ $b->slug }}">{{ $b->judul }}</a></h3>
+                    <h3><a href="{{ route('berita') }}/{{ $b->slug }}">{{ $b->judul }}</a></h3>
                 </div>
                 <ul class="entry-meta clearfix">
                     <li><i class="icon-calendar3"></i> {{ $b->created_at->format('d F, Y') }}</li>
@@ -89,13 +95,48 @@
                     {!! Str::limit($b->isi, 100) !!}
                 </div>
                 <div class="py-4">
-                    <a href="berita/{{ $b->slug }}">Read More</a>
+                    <a href="{{ route('berita') }}/{{ $b->slug }}">Read More</a>
                 </div>
             </div>
         </div>
         @endforeach
     </div>
 </div>  
+</div>
+
+<!-- Struktur Begin -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="clear"></div>
+            <div class="heading-block title-center page-section">
+                <h2>Struktur</h2>
+            </div>
+            <div id="oc-team-list" class="owl-carousel team-carousel carousel-widget" data-margin="30" data-nav="false"
+                data-items-md="1" data-items-xl="2">
+                @foreach ($struktur as $s)
+                <div class="oc-item">
+                    <div class="team team-list clearfix">
+                        <div class="team-image">
+                            <img src="{{ asset('uploads') }}/{{ $s->gambar }}" alt="{{ $s->nama }}">
+                        </div>
+                        <div class="team-desc">
+                            <div class="team-title">
+                                <h4>{{ $s->nama }}</h4><span>{{ $s->jabatan }}</span>
+                            </div>
+                            <div class="team-content">
+                                <p>{{ $s->bio }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Struktur End -->
 </div>
 <!-- Visi Misi Section End -->
 @endsection

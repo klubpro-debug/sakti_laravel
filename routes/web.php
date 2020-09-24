@@ -8,7 +8,7 @@ Route::resource('about', 'AboutController');
 
 Route::get('berita/{berita:slug}', 'BeritaController@show');
 
-Route::get('berita', 'BeritaController@index');
+Route::get('berita', 'BeritaController@index')->name('berita');
 
 Route::get('divisi/{divisi:nama}', 'DivisiController@show');
 

@@ -109,11 +109,11 @@
                     </div>
                 </li>               
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples-divisi" data-toggle="collapse" role="button" aria-expanded="{{ request()->is(['list_berita', 'list_berita/create' , 'kategori']) ? 'true' : 'false' }}" aria-controls="navbar-examples-divisi">
+                    <a class="nav-link" href="#navbar-examples-divisi" data-toggle="collapse" role="button" aria-expanded="{{ request()->is(['list_divisi', 'list_divisi/create']) ? 'true' : 'false' }}" aria-controls="navbar-examples-divisi">
                         <i class="ni ni-hat-3" style="color: #000000;"></i>
                         <span class="nav-link-text">{{ __('Divisi') }}</span>
                     </a>
-                    <div class="collapse{{ request()->is(['list_divisi', 'list_berita/create', 'kategori']) ? ' show' : '' }}" id="navbar-examples-divisi">
+                    <div class="collapse{{ request()->is(['list_divisi', 'list_divisi/create']) ? ' show' : '' }}" id="navbar-examples-divisi">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link{{ request()->is('list_divisi') ? ' active' : '' }}" href="{{ route('list_divisi.index') }}">
@@ -121,13 +121,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link{{ request()->is('list_berita/create') ? ' active' : '' }}" href="{{ route('list_berita.create') }}">
-                                    {{ __('Tambah Berita') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link{{ request()->is('kategori') ? ' active' : '' }}" href="{{ route('kategori.index') }}">
-                                    {{ __('Kategori') }}
+                                <a class="nav-link{{ request()->is('list_divisi/create') ? ' active' : '' }}" href="{{ route('list_divisi.create') }}">
+                                    {{ __('Tambah Divisi') }}
                                 </a>
                             </li>
                         </ul>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app', ['title' => __('List Galeri')])
 
 @section('content')
 @include('users.partials.header', [
@@ -36,6 +36,7 @@
                 <th scope="col" class="sort" data-sort="gambar">Gambar</th>
                 <th scope="col" class="sort" data-sort="judul">Judul</th>
                 <th scope="col" class="sort" data-sort="tanggal">Tanggal</th>
+                <th scope="col" class="sort" data-sort="kategori">Kategori</th>
                 <th scope="col" class="sort" data-sort="author">Author</th>
                 <th scope="col" class="sort" data-sort="aksi"></th>
               </tr>
@@ -55,6 +56,9 @@
                 </td>
                 <td>
                   {{ \Carbon\Carbon::parse($g->tanggal)->format('d F Y') }}
+                </td>
+                <td>
+                  {{ $g->kategori->nama }}
                 </td>
                 <td>
                   {{ $g->author }}
@@ -112,6 +116,17 @@
                       <label class="custom-file-label" for="customFileLang">Select file</label>
                     </div>
                   </div>
+                  <div class="form-group mb-3">
+                    <label for="">
+                      <span>Kategori : </span>
+                    </label>
+                    <select name="kategori" class="form-control" data-toggle="select" title="Simple select"
+                      data-live-search="true" data-live-search-placeholder="Search ...">
+                      @foreach ($kategori as $k)
+                      <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                      @endforeach
+                    </select>
+                  </div>                  
                   <div class="form-group mb-3" id="preview" style="display: none">
                     <label for="">
                       <span>Preview : </span>
@@ -167,6 +182,17 @@
                       <label class="custom-file-label" for="customFileLangEdit">Select file</label>
                     </div>
                   </div>
+                  <div class="form-group mb-3">
+                    <label for="">
+                      <span>Kategori : </span>
+                    </label>
+                    <select name="kategori" class="form-control" data-toggle="select" title="Simple select"
+                      data-live-search="true" data-live-search-placeholder="Search ...">
+                      @foreach ($kategori as $k)
+                      <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                      @endforeach
+                    </select>
+                  </div>                    
                   <div class="form-group mb-3">
                     <label for="">
                       <span>Preview : </span>

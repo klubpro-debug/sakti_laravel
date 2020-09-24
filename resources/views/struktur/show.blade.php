@@ -14,7 +14,6 @@
     </button>
   </div>
   @endif
-
   <div class="row">
     <div class="col-xl-12">
       <div class="card">
@@ -121,6 +120,17 @@
                   </div>
                   <div class="form-group mb-3">
                     <label for="">
+                      <span>Kategori : </span>
+                    </label>
+                    <select name="kategori" class="form-control" data-toggle="select" title="Simple select"
+                      data-live-search="true" data-live-search-placeholder="Search ...">
+                      @foreach ($kategori as $k)
+                      <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                      @endforeach
+                    </select>
+                  </div>                   
+                  <div class="form-group mb-3">
+                    <label for="">
                       <span>Gambar : </span>
                     </label>
                     <div class="custom-file">
@@ -190,6 +200,17 @@
                         <textarea class="form-control" name="bio">{{ $s->bio }}</textarea>
                     </div>
                   </div>
+                  <div class="form-group mb-3">
+                    <label for="">
+                      <span>Kategori : </span>
+                    </label>
+                    <select name="kategori" class="form-control" data-toggle="select" title="Simple select"
+                      data-live-search="true" data-live-search-placeholder="Search ...">
+                      @foreach ($kategori as $k)
+                      <option value="{{ $k->id }}"{{ $s->kategori->id == $k->id ? ' selected' : '' }}>{{ $k->nama }}</option>
+                      @endforeach
+                    </select>
+                  </div>                    
                   <div class="form-group mb-3">
                     <label for="">
                       <span>Gambar : </span>

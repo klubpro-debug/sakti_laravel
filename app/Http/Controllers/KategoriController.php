@@ -42,6 +42,8 @@ class KategoriController extends Controller
 
         $kategori = new Kategori;
         $kategori->nama = $request->get('kategori');    
+        $kategori->galeri_id = 1;
+        $kategori->berita_id = 1;
 
         $kategori->save();
 
@@ -84,7 +86,9 @@ class KategoriController extends Controller
         ]);
 
         $kategori = Kategori::find($id);
-        $kategori->nama = $request->get('kategori');    
+        $kategori->nama = $request->get('kategori'); 
+        $kategori->galeri_id = 1;
+        $kategori->berita_id = 1;           
 
         $kategori->save();
 

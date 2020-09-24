@@ -17,6 +17,7 @@ class DivisiController extends Controller
         $divisi = Divisi::where('nama', $nama)->firstOrFail();
         $galeri = $divisi->kategori->galeri;
         $berita = $divisi->kategori->berita;
-        return view('divisi', compact(['divisi', 'nama', 'galeri', 'berita']));
+        $struktur = $divisi->kategori->struktur;
+        return view('divisi', compact(['divisi', 'nama', 'galeri', 'berita', 'struktur']));
     }    
 }

@@ -18,9 +18,8 @@ class DivisiController extends Controller
     public function index()
     {
         $kategori = Kategori::get();
-        $galeri = Galeri::get();
         $divisi = Divisi::get();
-        return view('admin.divisi.show', compact(['divisi', 'kategori', 'galeri']));
+        return view('admin.divisi.show', compact(['divisi', 'kategori']));
     }
 
     /**
@@ -30,7 +29,9 @@ class DivisiController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = Kategori::get();
+        $divisi = Divisi::get();
+        return view('admin.divisi.create', compact(['divisi', 'kategori']));        
     }
 
     /**
@@ -41,7 +42,31 @@ class DivisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'bio' => 'required',
+            'latar_belakang' => 'required',
+            'kegiatan' => 'required',
+            'kategori' => 'required',
+            'file' => 'required',
+        ]);
+
+        $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
+
+        $request->file->move(public_path('uploads'), $fileName);
+
+        $divisi = new Divisi;
+        $divisi->nama = $request->get('nama');
+        $divisi->bio = $request->get('bio');
+        $divisi->latar_belakang = $request->get('latar_belakang');
+        $divisi->kegiatan = $request->get('kegiatan');
+        $divisi->struktur_id = $request->get('kategori');
+        $divisi->kategori_id = $request->get('kategori');
+        $divisi->gambar = $fileName;
+
+        $divisi->save();
+
+        return back()->withStatus(__('Divisi berhasil ditambahkan.'));
     }
 
     /**
@@ -63,7 +88,9 @@ class DivisiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori = Kategori::get();
+        $divisi = Divisi::find($id);
+        return view('admin.divisi.update', compact(['divisi', 'kategori']));   
     }
 
     /**
@@ -75,7 +102,34 @@ class DivisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        if ($request->hasFile('file')) {
+            $fileName =  "image-".time().'.'.$request->file->getClientOriginalExtension();
+
+            $request->file->move(public_path('uploads'), $fileName);
+            
+            $divisi = Divisi::find($id);
+            $divisi->nama = $request->get('nama');
+            $divisi->bio = $request->get('bio');
+            $divisi->latar_belakang = $request->get('latar_belakang');
+            $divisi->kegiatan = $request->get('kegiatan');
+            $divisi->struktur_id = $request->get('kategori');
+            $divisi->kategori_id = $request->get('kategori');
+            $divisi->gambar = $fileName;
+        } else {
+            $divisi = Divisi::find($id);
+            $divisi->nama = $request->get('nama');
+            $divisi->bio = $request->get('bio');
+            $divisi->latar_belakang = $request->get('latar_belakang');
+            $divisi->kegiatan = $request->get('kegiatan');
+            $divisi->struktur_id = $request->get('kategori');
+            $divisi->kategori_id = $request->get('kategori');
+            $divisi->gambar = $divisi->gambar;
+        }
+
+        $divisi->save();
+
+        return back()->withStatus(__('Divisi berhasil diupdate.'));        
     }
 
     /**
@@ -86,6 +140,9 @@ class DivisiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $divisi = Divisi::find($id);
+        $divisi->delete();
+
+        return back()->withStatus(__('Divisi berhasil dihapus.'));
     }
 }

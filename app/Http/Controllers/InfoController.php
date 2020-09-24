@@ -14,7 +14,7 @@ class InfoController extends Controller
      */
     public function index()
     {
-        $info = Info::first();
+        $info = Info::firstOrFail();
         return view('info', compact('info'));
     }
 

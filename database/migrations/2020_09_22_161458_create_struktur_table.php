@@ -19,7 +19,12 @@ class CreateStrukturTable extends Migration
             $table->string('jabatan');
             $table->text('bio');
             $table->string('gambar');
+            $table->unsignedBigInteger('kategori_id');            
             $table->timestamps();
+            $table->foreign('kategori_id')
+                ->references('id')
+                ->on('kategori')
+                ->onDelete('cascade');              
         });
     }
 
