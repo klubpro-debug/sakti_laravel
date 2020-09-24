@@ -23,7 +23,7 @@
                             <h3 class="mb-0">Pendaftaran</h3>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-sm btn-primary">Export ke Excel</button>
+                            <a href="{{ route('export') }}" class="btn btn-sm btn-primary">Export ke Excel</a>
                         </div>
                     </div>
                 </div>
@@ -39,6 +39,7 @@
                                 <th scope="col">Minat</th>
                                 <th scope="col">No. WA</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Tanggal Daftar</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -52,6 +53,7 @@
                                 <td>{{ $p->minat }}</td>
                                 <td>{{ $p->whatsapp }}</td>
                                 <td>{{ $p->email }}</td>
+                                <td>{{ $p->created_at->format('d F Y') }}</td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"

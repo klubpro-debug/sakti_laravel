@@ -27,6 +27,7 @@ Route::get('/form', function () {
 Auth::routes();
 
 Route::get('dashboard', 'Admin\HomeController@index')->name('home');
+Route::get('pendaftaran/export', 'Admin\PendaftaranController@export')->name('export');
 
 Route::resource('daftar', 'PendaftaranController');
 Route::resource('galeri', 'GaleriController');

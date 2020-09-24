@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\PendaftaranExport;
 use App\Pendaftaran;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
 class PendaftaranController extends Controller
@@ -18,6 +20,13 @@ class PendaftaranController extends Controller
         $pendaftaran = Pendaftaran::get();
         return view('pendaftaran.show', compact('pendaftaran'));
     }
+    
+    public function export()
+    {
+        $pendaftaran = Pendaftaran::get();
+		return Excel::download(new PendaftaranExport, 'pendaftaran-'.time().'.xlsx');
+
+    }    
 
     /**
      * Show the form for creating a new resource.
