@@ -24,35 +24,21 @@
     <div class="entry clearfix">
     
     <div class="entry-title">
-    <h2>This is a Standard post with a Preview Image</h2>
+    <h2>{{ $berita->judul }}</h2>
     </div>
     
     <ul class="entry-meta clearfix">
-    <li><i class="icon-calendar3"></i> 10th July 2014</li>
-    <li><a href="#"><i class="icon-user"></i> admin</a></li>
-    <li><i class="icon-folder-open"></i> <a href="#">General</a>, <a href="#">Media</a></li>
-    <li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>
-    <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+    <li><i class="icon-calendar3"></i> {{ $berita->created_at->format('d F Y') }}</li>
+    <li><a href="#"><i class="icon-user"></i> {{ $berita->author }}</a></li>
+    <li><i class="icon-folder-open"></i> <a href="#">{{ $berita->kategori->nama }}</a></li>
     </ul>
     
     <div class="entry-image">
-    <a href="#"><img src="images/blog/full/1.jpg" alt="Blog Single"></a>
+    <a href="#"><img src="{{ asset('uploads') }}/{{ $berita->gambar }}" alt="{{ $berita->judul }}"></a>
     </div>
-    
+
     <div class="entry-content notopmargin">
-    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. <a href="#">Curabitur blandit tempus porttitor</a>. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-    <blockquote><p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p></blockquote>
-    <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus.</p>
-    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. <a href="#">Nullam quis risus eget urna</a> mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-    <pre>#header-inner {
-        width: 940px;
-        margin: 0 auto;
-        padding-top: 40px;
-    }</pre>
-    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-    
+    <p>{!! $berita->isi !!}</p>
     
     <div class="tagcloud clearfix bottommargin">
     <a href="#">general</a>
@@ -272,137 +258,32 @@
     
     <div class="sidebar nobottommargin col_last clearfix">
     <div class="sidebar-widgets-wrap">
-    <div class="widget widget-twitter-feed clearfix">
-    <h4>Twitter Feed</h4>
-    <ul class="iconlist twitter-feed" data-username="envato" data-count="2">
-    <li></li>
-    </ul>
-    <a href="#" class="btn btn-secondary btn-sm fright">Follow Us on Twitter</a>
-    </div>
-    <div class="widget clearfix">
-    <h4>Flickr Photostream</h4>
-    <div id="flickr-widget" class="flickr-feed masonry-thumbs" data-id="613394@N22" data-count="16" data-type="group" data-lightbox="gallery"></div>
-    </div>
+
+    
     <div class="widget clearfix">
     <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
     <ul class="tab-nav clearfix">
-    <li><a href="#tabs-1">Popular</a></li>
-    <li><a href="#tabs-2">Recent</a></li>
-    <li><a href="#tabs-3"><i class="icon-comments-alt norightmargin"></i></a></li>
+    <li><a href="#tabs-1">Terbaru</a></li>
+    
     </ul>
     <div class="tab-container">
     <div class="tab-content clearfix" id="tabs-1">
     <div id="popular-post-list-sidebar">
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/magazine/small/3.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <div class="entry-title">
-    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-    </div>
-    <ul class="entry-meta">
-    <li><i class="icon-comments-alt"></i> 35 Comments</li>
-    </ul>
-    </div>
-    </div>
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/magazine/small/2.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <div class="entry-title">
-    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-    </div>
-    <ul class="entry-meta">
-    <li><i class="icon-comments-alt"></i> 24 Comments</li>
-    </ul>
-    </div>
-    </div>
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/magazine/small/1.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <div class="entry-title">
-    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-    </div>
-    <ul class="entry-meta">
-    <li><i class="icon-comments-alt"></i> 19 Comments</li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="tab-content clearfix" id="tabs-2">
-    <div id="recent-post-list-sidebar">
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/magazine/small/1.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <div class="entry-title">
-    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-    </div>
-    <ul class="entry-meta">
-    <li>10th July 2014</li>
-    </ul>
-    </div>
-    </div>
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/magazine/small/2.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <div class="entry-title">
-    <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-    </div>
-    <ul class="entry-meta">
-    <li>10th July 2014</li>
-    </ul>
-    </div>
-    </div>
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/magazine/small/3.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <div class="entry-title">
-    <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-    </div>
-    <ul class="entry-meta">
-    <li>10th July 2014</li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="tab-content clearfix" id="tabs-3">
-    <div id="recent-post-list-sidebar">
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/icons/avatar.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <strong>John Doe:</strong> Veritatis recusandae sunt repellat distinctio...
-    </div>
-    </div>
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/icons/avatar.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <strong>Mary Jane:</strong> Possimus libero, earum officia architecto maiores....
-    </div>
-    </div>
-    <div class="spost clearfix">
-    <div class="entry-image">
-    <a href="#" class="nobg"><img class="rounded-circle" src="images/icons/avatar.jpg" alt=""></a>
-    </div>
-    <div class="entry-c">
-    <strong>Site Admin:</strong> Deleniti magni labore laboriosam odio...
-    </div>
-    </div>
+        @foreach ($terbaru as $t)
+        <div class="spost clearfix">
+            <div class="entry-image">
+            <a href="#" class="nobg"><img class="rounded-circle" src="{{ asset('uploads') }}/{{ $t->gambar }}" alt=""></a>
+            </div>
+            <div class="entry-c">
+            <div class="entry-title">
+            <h4><a href="{{ url('berita') }}/{{ $t->slug }}">{{ $t->judul }}</a></h4>
+            </div>
+            <ul class="entry-meta">
+            <li><i class="icon-folder-open"></i> {{ $t->kategori->nama }}</li>
+            </ul>
+            </div>
+            </div>            
+        @endforeach
     </div>
     </div>
     </div>
