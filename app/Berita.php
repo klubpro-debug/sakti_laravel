@@ -15,9 +15,4 @@ class Berita extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
-
-    public function scopeGetTerbaru()
-    {
-        return Berita::latest()->limit(5)->get();
-    } 
 }

@@ -18,8 +18,8 @@ class BeritaController extends Controller
     {
         $kategori = Kategori::get();
         $berita = Berita::where('slug', $slug)->firstOrFail();
-        $terbaru = Berita::getTerbaru();
-        $related = Berita::where('kategori_id', $berita->kategori->id)->get();
+        $terbaru = Berita::latest()->limit(3)->get();
+        $related = Berita::where('kategori_id', $berita->kategori->id)->limit(3)->get();
         return view('detailberita', compact(['berita', 'kategori', 'terbaru', 'related']));
     }
 }
